@@ -25,7 +25,7 @@ def index():
 @app.route('/earthquakes/<int:id>')
 def earthquake_by_id(id):
     if quake := Earthquake.query.filter_by(id=id).first():
-        body = quake.to.dict()
+        body = quake.to_dict()
         status = 200
     else:
         body = {'message': f'Earthquake {id} not found.'}
